@@ -37,18 +37,17 @@ def getHit(vtx, p, r):      #Returns the distance btw vtx and hit point at barre
         return sqrt((vtx[0]-x)**2+(vtx[1]-y)**2)
 
 
-R = 1200    #Radius of barrel in mm
-
 gluino_id = 1000021
 gluon_id = 21
 gravitino_id = 1000039
 
-if len(sys.argv) != 3:
-    print "USAGE: %s <input file> <output file>" %sys.argv[0]
+if len(sys.argv) != 4:
+    print "USAGE: %s <barrel radius> <input file> <output file>" %sys.argv[0]
     sys.exit(1)
 
-inFileName = sys.argv[1]
-outFileName = sys.argv[2]
+R = float(sys.argv[1])
+inFileName = sys.argv[2]
+outFileName = sys.argv[3]
 print "Reading from", inFileName, "and writing to", outFileName
 
 inFile = ROOT.TFile.Open(inFileName, "READ")
